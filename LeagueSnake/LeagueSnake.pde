@@ -22,6 +22,8 @@ Segment(int x, int y){
 Segment head;
 int foodX;
 int foodY;
+int direction=UP;
+int eaten=0;
 //*
 // ***** SETUP METHODS *****
 // These methods are called at the start of the game.
@@ -50,6 +52,7 @@ void dropFood() {
 void draw() {
   background(0,0,0);
   drawFood();
+  move();
   drawSnake();
 }
 
@@ -95,35 +98,48 @@ void checkTailCollision() {
 
 void keyPressed() {
   //Set the direction of the snake according to the arrow keys pressed
-  
+ if(keyPressed==true){
+   direction=keyCode;
 }
+if(direction)//left off here last class (begin here) "make sure opposite doesnt work"
+}
+
 
 void move() {
   //Change the location of the Snake head based on the direction it is moving.
   
-    /*
+   
   switch(direction) {
   case UP:
-    // move head up here 
+    head.y-=5;
     break;
   case DOWN:
-    // move head down here 
+ head.y+=5;
     break;
   case LEFT:
-   // figure it out 
+   head.x-=5;
     break;
   case RIGHT:
-    // mystery code goes here 
+  head.x+=5;
     break;
   }
-  */
+  checkBoundaries();
 }
 
 void checkBoundaries() {
  //If the snake leaves the frame, make it reappear on the other side
- 
+ if(head.x<0){
+   head.x=width;
 }
-
+if(head.y<0){
+   head.y=height;
+}
+ if(head.x>width){
+   head.x=0;
+}
+if(head.y>height){
+   head.y=0;
+}}
 
 
 void eat() {

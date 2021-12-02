@@ -75,7 +75,7 @@ void drawSnake() {
 
 void drawTail() {
   //Draw each segment of the tail 
-
+if(Segment
 }
 
 void manageTail() {

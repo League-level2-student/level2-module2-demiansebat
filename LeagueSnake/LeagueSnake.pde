@@ -95,6 +95,7 @@ void checkTailCollision() {
     Segment collision=tail.get(i);
     if(head.x==collision.x&&head.y==collision.y){
       eaten=1;
+      tail.clear();
   }}
 }
 
